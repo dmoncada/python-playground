@@ -1,0 +1,6 @@
+# Misc. file types.
+tags
+*.swp
+
+# Misc. dirs.
+__pycache__
