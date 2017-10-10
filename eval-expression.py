@@ -105,9 +105,7 @@ if __name__ == '__main__':
     infix2 = '9 + 2 * ( 7 - 3 / 4 )'
     infix3 = '( 2 + 3 * 4 ) * 5 + 1'
 
-    expressions = [infix1, infix2, infix3]
-
-    for expression in expressions:
+    for expression in [infix1, infix2, infix3]:
         ans = eval_infix(expression.split(' '))
         print(f'The evaluation of: {expression} is: {ans}')
 
