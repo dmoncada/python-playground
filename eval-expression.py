@@ -15,7 +15,6 @@ def eval_infix(expression):
     expression, if any, must be well-formed.
 
     [1] Data Structures and Algorithms with Python
-
     '''
 
     # Multiplicaton and division have the highest precedence, followed by
@@ -40,8 +39,7 @@ def eval_infix(expression):
 
         ops.push(op)
 
-    ops = Stack()
-    nums = Stack()
+    ops, nums = Stack(), Stack()
 
     # Initially, a left paren is pushed on the ops. stack.
     ops.push('(')
@@ -67,10 +65,9 @@ def eval_postfix(expression):
     order of evaluation as long each operator receives exactly the number of
     operands it expects.
 
-    The same caveats for the infix expression evaluator fuction apply here.
+    The same caveats for the infix expression evaluator function apply here.
 
     [1] The C Programming Language
-
     '''
 
     nums = Stack()
@@ -107,8 +104,10 @@ if __name__ == '__main__':
 
     for expression in [infix1, infix2, infix3]:
         ans = eval_infix(expression.split(' '))
+
         print(f'The evaluation of: {expression} is: {ans}')
 
     postfix = '1 2 - 4 5 + *'
     ans = eval_postfix(postfix.split(' '))
+
     print(f'The evaluation of: {postfix} is: {ans}')
