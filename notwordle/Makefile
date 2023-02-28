@@ -3,9 +3,9 @@ PIP     = venv/bin/pip
 PYTHON  = venv/bin/python3
 SRC     = notwordle.py
 
-.PHONY: all update reqs freeze frozen lint test venv clean help
+.PHONY: all update reqs freeze frozen lint test run venv clean help
 
-all: venv frozen lint test
+all: venv frozen lint test run
 
 update: clean venv reqs freeze
 
@@ -27,6 +27,9 @@ test:
 	$(PYTHON) -m doctest $(SRC) --verbose --fail-fast
 	$(PYTHON) -m pytest --verbose
 
+run:
+	$(PYTHON) $(SRC)
+
 venv:
 	[[ -d $(ENV) ]] || python3 -m venv $(ENV)
 
@@ -43,6 +46,7 @@ help:
 	@echo ' *frozen  - Installs the required packages from the frozen requirements file.'
 	@echo ' *lint    - Runs various linters and static code analysis tools on the source.'
 	@echo ' *test    - Runs the tests.'
+	@echo ' *run     - Runs the app.'
 	@echo ' *venv    - Creates the virtual environment.'
 	@echo ' clean    - Removes the virtual environment.'
 
